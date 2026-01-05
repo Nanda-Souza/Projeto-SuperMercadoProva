@@ -9,8 +9,10 @@ O projeto SuperMercadoProva simula o sistema de gerenciamento de vendas de um su
 **Fluxograma**
 
 **Tecnologias Utilizadas**
+
 Java <br>
 Programação Orientada a Objetos (POO)
 
 **Autoria**
+
 Projeto desenvolvido por Fernanda Souza Oliveira
