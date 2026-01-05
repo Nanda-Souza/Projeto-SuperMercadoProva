@@ -23,6 +23,13 @@ public class Estoque {
         listaDeProdutos.add(new Produto(10, "Pão de Sanduiche", 9.00, 5));
     }
 
+    public void imprimeCatalogoDoEstoque(){
+        for (Produto p : listaDeProdutos){
+            System.out.println(p);
+        }
+    }
+
+
 
 
 
