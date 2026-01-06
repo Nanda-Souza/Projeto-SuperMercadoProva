@@ -43,4 +43,13 @@ public class Produto {
         this.quantidadeEmEstoque = quantidadeEmEstoque;
     }
 
+    @Override
+    public String toString() {
+        return  "Id: " + id + "\n" +
+                "Nome: " + nome + "\n" +
+                "Preço: " + preco + "\n" +
+                "Quantidade em Estoque: " + quantidadeEmEstoque + "\n" +
+                "-----------------------------------------";
+    }
+
 }

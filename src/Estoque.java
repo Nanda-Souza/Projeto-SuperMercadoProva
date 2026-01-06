@@ -28,6 +28,9 @@ public class Estoque {
             System.out.println(p);
         }
     }
+    public int getTamanhoEstoque(){
+        return listaDeProdutos.size();
+    }
 
     public Produto encontraProduto(String nome){
         for (Produto p : listaDeProdutos){
@@ -65,9 +68,5 @@ public class Estoque {
         return false;
 
     }
-
-
-
-
 
 }
