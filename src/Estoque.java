@@ -29,6 +29,24 @@ public class Estoque {
         }
     }
 
+    public Produto encontraProduto(String nome){
+        for (Produto p : listaDeProdutos){
+            if (p.getNome().equalsIgnoreCase(nome)){
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public Produto encontraProduto(int id){
+        for (Produto p : listaDeProdutos){
+            if (p.getId() == id){
+                return p;
+            }
+        }
+        return null;
+    }
+
 
 
 
