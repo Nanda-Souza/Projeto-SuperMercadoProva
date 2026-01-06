@@ -5,6 +5,8 @@ public class SuperMercado {
         //Variaveis de Controle
         Scanner scanner = new Scanner(System.in);
         String inputUsuario;
+        Estoque estoque = new Estoque();
+
 
         do{
 
@@ -20,15 +22,20 @@ public class SuperMercado {
 
                 case "1":
                     System.out.println("Catalogo Listado!");
+                    //estoque.imprimeCatalogoDoEstoque();
+                    break;
 
                 case "2":
                     System.out.println("Produto Cadastrado!");
+                    break;
 
                 case "3":
                     System.out.println("Pedido Realizado!");
+                    break;
 
                 case "0":
                     System.out.println("Fechando o programa");
+                    break;
 
                 default:
                     System.out.println("Opção inválida!");
