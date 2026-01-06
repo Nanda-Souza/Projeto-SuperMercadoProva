@@ -4,13 +4,13 @@ public class Estoque {
     private ArrayList<Produto> listaDeProdutos;
 
 
-    public Estoque(){
+    public Estoque() {
 
         this.listaDeProdutos = new ArrayList<>();
         inicializaEstoque();
     }
 
-    public void inicializaEstoque(){
+    public void inicializaEstoque() {
         listaDeProdutos.add(new Produto(1, "Arroz", 4.80, 10));
         listaDeProdutos.add(new Produto(2, "Feijão", 6.50, 10));
         listaDeProdutos.add(new Produto(3, "Café Melita", 22.30, 5));
@@ -23,41 +23,41 @@ public class Estoque {
         listaDeProdutos.add(new Produto(10, "Pão de Sanduiche", 9.00, 5));
     }
 
-    public void imprimeCatalogoDoEstoque(){
-        for (Produto p : listaDeProdutos){
+    public void imprimeCatalogoDoEstoque() {
+        for (Produto p : listaDeProdutos) {
             System.out.println(p);
         }
     }
 
-    public Produto encontraProduto(String nome){
-        for (Produto p : listaDeProdutos){
-            if (p.getNome().equalsIgnoreCase(nome)){
+    public Produto encontraProduto(String nome) {
+        for (Produto p : listaDeProdutos) {
+            if (p.getNome().equalsIgnoreCase(nome)) {
                 return p;
             }
         }
         return null;
     }
 
-    public Produto encontraProduto(int id){
-        for (Produto p : listaDeProdutos){
-            if (p.getId() == id){
+    public Produto encontraProduto(int id) {
+        for (Produto p : listaDeProdutos) {
+            if (p.getId() == id) {
                 return p;
             }
         }
         return null;
     }
 
-    public boolean cadastrarProduto(Produto produto){
+    public boolean cadastrarProduto(Produto produto) {
 
         boolean produtoEncontrado = false;
 
-        for (Produto p : listaDeProdutos){
-            if (p.getNome().equalsIgnoreCase(produto.getNome())){
+        for (Produto p : listaDeProdutos) {
+            if (p.getNome().equalsIgnoreCase(produto.getNome())) {
                 produtoEncontrado = true;
             }
         }
 
-        if(!produtoEncontrado){
+        if (!produtoEncontrado) {
             listaDeProdutos.add(new Produto(produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidadeEmEstoque()));
             return true;
         }
@@ -65,9 +65,6 @@ public class Estoque {
         return false;
 
     }
-
-
-
 
 
 }

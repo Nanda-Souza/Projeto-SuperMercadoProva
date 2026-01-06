@@ -21,8 +21,8 @@ public class SuperMercado {
             switch (inputUsuario){
 
                 case "1":
-                    System.out.println("Catalogo Listado!");
-                    //estoque.imprimeCatalogoDoEstoque();
+                    System.out.println("Catalogo de produtos:");
+                    estoque.imprimeCatalogoDoEstoque();
                     break;
 
                 case "2":
