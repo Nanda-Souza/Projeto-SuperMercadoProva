@@ -47,6 +47,25 @@ public class Estoque {
         return null;
     }
 
+    public boolean cadastrarProduto(Produto produto){
+
+        boolean produtoEncontrado = false;
+
+        for (Produto p : listaDeProdutos){
+            if (p.getNome().equalsIgnoreCase(produto.getNome())){
+                produtoEncontrado = true;
+            }
+        }
+
+        if(!produtoEncontrado){
+            listaDeProdutos.add(new Produto(produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidadeEmEstoque()));
+            return true;
+        }
+
+        return false;
+
+    }
+
 
 
 
