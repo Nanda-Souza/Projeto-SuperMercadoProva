@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 public class SuperMercado {
+    public static boolean inputValido(String input) {
+        return input != null &&
+                input.matches("^[12]$");
+    }
     public static void main(String[] args) {
         //Variaveis de Controle
         Scanner scanner = new Scanner(System.in);
@@ -28,6 +32,22 @@ public class SuperMercado {
                 case "1":
                     System.out.println("Catalogo de produtos:");
                     estoque.imprimeCatalogoDoEstoque();
+
+                    System.out.println("\n Deseja retornar ao menu?");
+                    System.out.println("1 - Sim");
+                    System.out.println("2 - Não");
+
+                    inputUsuario = scanner.nextLine().trim();
+
+                    while (!inputValido(inputUsuario)){
+                        System.out.println("\nOpção inválida, digite 1 para sim e 2 para não:");
+                        inputUsuario = scanner.nextLine().trim();
+                    }
+
+                    if (inputUsuario.equals("2")){
+                        System.out.println("Fechando o programa!");
+                        inputUsuario = "0";
+                    }
                     break;
 
                 case "2":
@@ -54,7 +74,7 @@ public class SuperMercado {
                     break;
 
                 case "0":
-                    System.out.println("Fechando o programa");
+                    System.out.println("Fechando o programa!");
                     break;
 
                 default:
