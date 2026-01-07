@@ -57,6 +57,7 @@ public class Estoque {
         for (Produto p : listaDeProdutos){
             if (p.getNome().equalsIgnoreCase(produto.getNome())){
                 produtoEncontrado = true;
+                break;
             }
         }
 

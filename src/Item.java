@@ -27,4 +27,12 @@ public class Item {
         this.quantidade = quantidade;
     }
 
+    @Override
+    public String toString() {
+        return  "Nome do Item: " + produto.getNome() + "\n" +
+                "Quantidade: " + quantidade + "\n" +
+                "Valor do Item: " + valorDoItem + "\n" +
+                "-----------------------------------------";
+    }
+
 }
