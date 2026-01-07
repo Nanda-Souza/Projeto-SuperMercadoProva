@@ -4,11 +4,17 @@ public class Pedido {
     private ArrayList<Item> listaDeItems;
     private double valorTotalDoPedido = 0;
 
+
+    public Pedido(){
+
+        this.listaDeItems = new ArrayList<>();
+    }
+
     public void calculaValorTotal(){
         double soma = 0;
 
         for (Item i : listaDeItems){
-            soma = i.getValorDoItem();
+            soma += i.getValorDoItem();
 
         }
         this.valorTotalDoPedido = soma;
@@ -18,7 +24,7 @@ public class Pedido {
 
         boolean itemEncontrado = false;
 
-        if(listaDeItems.size() > 0){
+        if(listaDeItems.size() > 0 && listaDeItems != null){
 
             for (Item i : listaDeItems){
                 if(i.getProduto().getNome().equalsIgnoreCase(produto.getNome())){
@@ -40,7 +46,7 @@ public class Pedido {
     }
 
     public void imprimePedido(){
-        for (Item i : listaDeItems){
+        for (Item i : this.listaDeItems){
             System.out.println(i);
         }
     }
@@ -51,6 +57,7 @@ public class Pedido {
 
     public void limparCarrinho(){
         this.listaDeItems.clear();
+        this.valorTotalDoPedido = 0;
     }
 
     public ArrayList<Item> getListaDeItems() {return listaDeItems;}

@@ -28,6 +28,7 @@ public class SuperMercado {
         Scanner scanner = new Scanner(System.in);
         String inputUsuario;
         Estoque estoque = new Estoque();
+        Pedido pedido = new Pedido();
         int idProduto = estoque.getTamanhoEstoque() + 1;
         String nomeProduto;
         double precoProduto;
