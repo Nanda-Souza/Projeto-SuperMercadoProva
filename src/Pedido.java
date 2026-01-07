@@ -24,7 +24,7 @@ public class Pedido {
 
         boolean itemEncontrado = false;
 
-        if(listaDeItems.size() > 0 && listaDeItems != null){
+        if(!listaDeItems.isEmpty()){
 
             for (Item i : listaDeItems){
                 if(i.getProduto().getNome().equalsIgnoreCase(produto.getNome())){
