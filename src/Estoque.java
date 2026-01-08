@@ -121,4 +121,22 @@ public class Estoque {
         return temEmEstoque;
     }
 
+    public boolean darBaixaEmEstoque(String nome, int quantidadeParaDarBaixa){
+
+        boolean baixaEmEstoque = false;
+
+        for (Produto p : listaDeProdutos){
+            if (p.getNome().equalsIgnoreCase(nome)){
+
+                if(quantidadeParaDarBaixa <= p.getQuantidadeEmEstoque()){
+                    int quantidadeAtual = p.getQuantidadeEmEstoque();
+                    p.setQuantidadeEmEstoque(quantidadeAtual - quantidadeParaDarBaixa);
+                    baixaEmEstoque =true;
+                }
+            }
+            break;
+        }
+        return baixaEmEstoque;
+    }
+
 }
