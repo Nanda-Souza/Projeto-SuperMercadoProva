@@ -70,8 +70,18 @@ public class Estoque {
 
     }
 
+    public int getQuantidadeAtualEmEstoque(Produto produto){
 
+        int quantidadeEmEstoque = 0;
 
+        for (Produto p : listaDeProdutos){
+            if (p.equals(produto)){
+                quantidadeEmEstoque = p.getQuantidadeEmEstoque();
+                break;
+            }
+        }
 
+        return quantidadeEmEstoque;
+    }
 
 }

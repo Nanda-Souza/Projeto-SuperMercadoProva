@@ -135,6 +135,11 @@ public class SuperMercado {
 
                 case "3":
                     System.out.println("Pedido Realizado!");
+
+                    Produto produtoEmEstoque = estoque.encontraProduto(11);
+
+                    System.out.println(estoque.getQuantidadeAtualEmEstoque(produtoEmEstoque));
+
                     break;
 
                 case "0":
