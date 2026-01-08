@@ -137,10 +137,11 @@ public class SuperMercado {
                     System.out.println("Pedido Realizado!");
 
                     Produto produtoArroz = estoque.encontraProduto(1);
-                    Produto produtoFeijao = estoque.encontraProduto(2);
+                    //Produto produtoFeijao = estoque.encontraProduto(2);
 
-                    System.out.println(estoque.getPosicaoDoProdutoNaLista(produtoArroz));
-                    System.out.println(estoque.getPosicaoDoProdutoNaLista(produtoFeijao));
+                    System.out.println(estoque.temEstoqueOuNao(produtoArroz, 9));
+                    System.out.println(estoque.temEstoqueOuNao(produtoArroz, 10));
+                    System.out.println(estoque.temEstoqueOuNao(produtoArroz, 11));
 
                     break;
 

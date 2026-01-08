@@ -103,4 +103,22 @@ public class Estoque {
 
     }
 
+    public boolean temEstoqueOuNao(Produto produto, int quantidadeParaDarBaixa){
+
+        boolean temEmEstoque = false;
+
+        for (Produto p : listaDeProdutos){
+            if (p.equals(produto)){
+
+                if(quantidadeParaDarBaixa <= p.getQuantidadeEmEstoque()){
+                    temEmEstoque = true;
+                }
+
+                break;
+            }
+        }
+
+        return temEmEstoque;
+    }
+
 }
