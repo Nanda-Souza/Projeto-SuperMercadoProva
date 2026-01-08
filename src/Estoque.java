@@ -84,4 +84,23 @@ public class Estoque {
         return quantidadeEmEstoque;
     }
 
+    public int getPosicaoDoProdutoNaLista(Produto produto){
+
+        //Retorna -1 se não acha o produto na lista
+        int posicaoNaLista = -1;
+
+        for (int i = 0; i < listaDeProdutos.size(); i++){
+
+            Produto p = listaDeProdutos.get(i);
+
+            if (p.equals(produto)){
+                posicaoNaLista = i;
+                break;
+            }
+        }
+
+        return posicaoNaLista;
+
+    }
+
 }
