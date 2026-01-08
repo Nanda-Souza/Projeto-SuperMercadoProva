@@ -135,14 +135,6 @@ public class SuperMercado {
 
                 case "3":
                     System.out.println("Pedido Realizado!");
-
-                    //Produto produtoArroz = estoque.encontraProduto(1);
-                    //Produto produtoFeijao = estoque.encontraProduto(2);
-
-                    System.out.println(estoque.darBaixaEmEstoque("Arroiz", 60));
-                    System.out.println(estoque.darBaixaEmEstoque("Arroz", 60));
-                    System.out.println(estoque.darBaixaEmEstoque("Arroz", 7));
-
                     break;
 
                 case "0":

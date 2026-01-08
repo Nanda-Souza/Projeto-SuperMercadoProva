@@ -113,7 +113,6 @@ public class Estoque {
                 if(quantidadeParaDarBaixa <= p.getQuantidadeEmEstoque()){
                     temEmEstoque = true;
                 }
-
                 break;
             }
         }
@@ -132,9 +131,29 @@ public class Estoque {
                     int quantidadeAtual = p.getQuantidadeEmEstoque();
                     p.setQuantidadeEmEstoque(quantidadeAtual - quantidadeParaDarBaixa);
                     baixaEmEstoque =true;
+                    break;
                 }
             }
-            break;
+
+        }
+        return baixaEmEstoque;
+    }
+
+    public boolean darBaixaEmEstoque(int id, int quantidadeParaDarBaixa){
+
+        boolean baixaEmEstoque = false;
+
+        for (Produto p : listaDeProdutos){
+            if (p.getId() == id){
+
+                if(quantidadeParaDarBaixa <= p.getQuantidadeEmEstoque()){
+                    int quantidadeAtual = p.getQuantidadeEmEstoque();
+                    p.setQuantidadeEmEstoque(quantidadeAtual - quantidadeParaDarBaixa);
+                    baixaEmEstoque =true;
+                    break;
+                }
+            }
+
         }
         return baixaEmEstoque;
     }
