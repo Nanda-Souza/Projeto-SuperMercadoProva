@@ -70,8 +70,92 @@ public class Estoque {
 
     }
 
+    public int getQuantidadeAtualEmEstoque(Produto produto){
 
+        int quantidadeEmEstoque = 0;
 
+        for (Produto p : listaDeProdutos){
+            if (p.equals(produto)){
+                quantidadeEmEstoque = p.getQuantidadeEmEstoque();
+                break;
+            }
+        }
 
+        return quantidadeEmEstoque;
+    }
+
+    public int getPosicaoDoProdutoNaLista(Produto produto){
+
+        //Retorna -1 se não acha o produto na lista
+        int posicaoNaLista = -1;
+
+        for (int i = 0; i < listaDeProdutos.size(); i++){
+
+            Produto p = listaDeProdutos.get(i);
+
+            if (p.equals(produto)){
+                posicaoNaLista = i;
+                break;
+            }
+        }
+
+        return posicaoNaLista;
+
+    }
+
+    public boolean temEstoqueOuNao(Produto produto, int quantidadeParaDarBaixa){
+
+        boolean temEmEstoque = false;
+
+        for (Produto p : listaDeProdutos){
+            if (p.equals(produto)){
+
+                if(quantidadeParaDarBaixa <= p.getQuantidadeEmEstoque()){
+                    temEmEstoque = true;
+                }
+                break;
+            }
+        }
+
+        return temEmEstoque;
+    }
+
+    public boolean darBaixaEmEstoque(String nome, int quantidadeParaDarBaixa){
+
+        boolean baixaEmEstoque = false;
+
+        for (Produto p : listaDeProdutos){
+            if (p.getNome().equalsIgnoreCase(nome)){
+
+                if(quantidadeParaDarBaixa <= p.getQuantidadeEmEstoque()){
+                    int quantidadeAtual = p.getQuantidadeEmEstoque();
+                    p.setQuantidadeEmEstoque(quantidadeAtual - quantidadeParaDarBaixa);
+                    baixaEmEstoque =true;
+                    break;
+                }
+            }
+
+        }
+        return baixaEmEstoque;
+    }
+
+    public boolean darBaixaEmEstoque(int id, int quantidadeParaDarBaixa){
+
+        boolean baixaEmEstoque = false;
+
+        for (Produto p : listaDeProdutos){
+            if (p.getId() == id){
+
+                if(quantidadeParaDarBaixa <= p.getQuantidadeEmEstoque()){
+                    int quantidadeAtual = p.getQuantidadeEmEstoque();
+                    p.setQuantidadeEmEstoque(quantidadeAtual - quantidadeParaDarBaixa);
+                    baixaEmEstoque =true;
+                    break;
+                }
+            }
+
+        }
+        return baixaEmEstoque;
+    }
 
 }
