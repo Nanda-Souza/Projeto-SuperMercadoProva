@@ -135,8 +135,6 @@ public class SuperMercado {
 
                 case "3":
                     System.out.println("Pedido Realizado!");
-
-
                     break;
 
                 case "0":
