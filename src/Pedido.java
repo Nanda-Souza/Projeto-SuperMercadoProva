@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 
 public class Pedido {
     private ArrayList<Item> listaDeItems;
@@ -62,8 +65,13 @@ public class Pedido {
 
     public double calculaTroco(double valorPago, Pedido pedido){
         double valorTotalDoPedido = pedido.getValorTotalDoPedido();
+        double troco = valorTotalDoPedido - valorPago;
+        //Multiplica por 100 arredondando pra cima e dividi por 100 para evitar troco com mais de 2 casas decimais.
+        double trocoPreciso = Math.ceil(troco * 100) / 100;
 
-        return valorTotalDoPedido - valorPago;
+
+
+        return trocoPreciso;
 
     }
 
