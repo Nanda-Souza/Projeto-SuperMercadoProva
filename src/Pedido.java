@@ -60,6 +60,13 @@ public class Pedido {
         this.valorTotalDoPedido = 0;
     }
 
+    public double calculaTroco(double valorPago, Pedido pedido){
+        double valorTotalDoPedido = pedido.getValorTotalDoPedido();
+
+        return valorTotalDoPedido - valorPago;
+
+    }
+
     public ArrayList<Item> getListaDeItems() {return listaDeItems;}
 
     public double getValorTotalDoPedido() {return valorTotalDoPedido;}
