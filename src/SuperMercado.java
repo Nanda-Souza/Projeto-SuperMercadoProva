@@ -244,6 +244,7 @@ public class SuperMercado {
                     if (pedidoConcluido){
                         double valorPago = 0;
                         double valorTotal = pedido.getValorTotalDoPedido();
+                        double troco = 0;
                         boolean pagamentoRealizado = false;
                         ArrayList<Item> listaDeItems = pedido.getListaDeItems();
 
@@ -282,8 +283,9 @@ public class SuperMercado {
                         }
 
                         System.out.println("\n==== Estoque Atualizado! ====");
-
-
+                        troco = pedido.calculaTroco(valorPago, pedido);
+                        System.out.println("\n Seu troco é de R$: " + troco);
+                        pedido.menorQuantidadeDeNotas(troco);
 
                     }
 
