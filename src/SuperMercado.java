@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -244,10 +245,11 @@ public class SuperMercado {
                         double valorPago = 0;
                         double valorTotal = pedido.getValorTotalDoPedido();
                         boolean pagamentoRealizado = false;
+                        ArrayList<Item> listaDeItems = pedido.getListaDeItems();
 
                         System.out.println("\n==== Imprimindo Pedido ====: ");
                         pedido.imprimePedido();
-                        System.out.println("O valor total do pedido é " + valorTotal + "!");
+                        pedido.imprimeValorTotal();
 
                         do{
                             System.out.println("\nInsira o valor para pagamento: ");
@@ -269,7 +271,19 @@ public class SuperMercado {
 
                         } while (!pagamentoRealizado);
 
-                        System.out.println("Pagamento Realizado!");
+                        System.out.println("\n==== Pagamento Realizado! ====");
+                        System.out.println("\n==== Dando Baixa em Estoque! ====");
+
+                        for (Item i : listaDeItems ){
+                            String nomeDoItem = i.getProduto().getNome();
+                            int quantidadeDoItem = i.getQuantidade();
+
+                            estoque.darBaixaEmEstoque(nomeDoItem, quantidadeDoItem);
+                        }
+
+                        System.out.println("\n==== Estoque Atualizado! ====");
+
+
 
                     }
 
