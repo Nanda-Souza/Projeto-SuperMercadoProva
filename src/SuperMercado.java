@@ -138,6 +138,7 @@ public class SuperMercado {
                     boolean pedidoConcluido = false;
                     boolean voltarAoMenu = false;
 
+
                     do {
 
                         System.out.println("Digite o nome do produto: ");
@@ -238,10 +239,41 @@ public class SuperMercado {
 
                     } while (!pedidoConcluido && !voltarAoMenu);
 
-                    pedido.imprimePedido();
-                    System.out.println(pedido.getValorTotalDoPedido());
-                    pedido.limparCarrinho();
 
+                    if (pedidoConcluido){
+                        double valorPago = 0;
+                        double valorTotal = pedido.getValorTotalDoPedido();
+                        boolean pagamentoRealizado = false;
+
+                        System.out.println("\n==== Imprimindo Pedido ====: ");
+                        pedido.imprimePedido();
+                        System.out.println("O valor total do pedido é " + valorTotal + "!");
+
+                        do{
+                            System.out.println("\nInsira o valor para pagamento: ");
+                            inputUsuario = scanner.nextLine().trim();
+
+                            while(!precoValido(inputUsuario)){
+                                System.out.println("Preço inválido. Digite apenas números, usando vírgula para separar os centavos (ex: 100,20):");
+                                inputUsuario = scanner.nextLine().trim();
+                            }
+
+                            valorPago = Double.parseDouble(inputUsuario.replace(",", "."));
+
+                            if (valorPago < valorTotal){
+                                System.out.println("Pagamento não realizado, valor pago inferior ao valor total do pedido.");
+
+                            } else {
+                                pagamentoRealizado = true;
+                            }
+
+                        } while (!pagamentoRealizado);
+
+                        System.out.println("Pagamento Realizado!");
+
+                    }
+
+                    pedido.limparCarrinho();
 
                     break;
 
