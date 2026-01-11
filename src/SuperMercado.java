@@ -134,7 +134,109 @@ public class SuperMercado {
                     break;
 
                 case "3":
-                    System.out.println("Pedido Realizado!");
+
+                    boolean pedidoConcluido = false;
+                    do {
+
+                        System.out.println("Digite o nome do produto: ");
+                        nomeProduto = scanner.nextLine().trim();
+
+                        while (!nomeDeProdutoValido(nomeProduto)){
+                            System.out.println("Nome do produto inválido, digite um nome de produto com no mínimo 2 caracteres e ao menos uma letra:");
+                            nomeProduto = scanner.nextLine().trim();
+                        }
+
+                        Produto produtoPedido = estoque.encontraProduto(nomeProduto);
+
+                        if (produtoPedido != null){
+                            System.out.println("\nInsira a quantidade em desejada: ");
+                            inputUsuario = scanner.nextLine().trim();
+
+                            while(!quantidadeValida(inputUsuario)){
+                                System.out.println("Quantidade inválida. Digite apenas um numero inteiro:");
+                                inputUsuario = scanner.nextLine().trim();
+
+                            }
+
+                            quantidadeProduto = Integer.parseInt(inputUsuario);
+
+                            if (estoque.temEstoqueOuNao(produtoPedido, quantidadeProduto)){
+
+                                if (pedido.adicionaItemNaLista(produtoPedido, quantidadeProduto)){
+                                    System.out.println("Produto adicionado ao pedido com sucesso, deseja concluir o pedido ou adicionar mais produtos? ");
+                                    System.out.println("1 - Adicionar outro produto");
+                                    System.out.println("2 - Concluir pedido");
+
+                                    inputUsuario = scanner.nextLine().trim();
+
+                                    while (!inputValido(inputUsuario)){
+                                        System.out.println("\nOpção inválida, digite 1 para adicionar outro produto ou 2 para concluir o pedido:");
+                                        inputUsuario = scanner.nextLine().trim();
+                                    }
+
+                                    if (inputUsuario.equals("2")){
+                                        pedidoConcluido = true;
+                                    }
+
+                                }else {
+                                    System.out.println("Este produto já foi adicionado ao pedido, deseja concluir o pedido ou adicionar mais produtos? ");
+                                    System.out.println("1 - Adicionar outro produto");
+                                    System.out.println("2 - Concluir pedido");
+
+                                    inputUsuario = scanner.nextLine().trim();
+
+                                    while (!inputValido(inputUsuario)){
+                                        System.out.println("\nOpção inválida, digite 1 para adicionar outro produto ou 2 para concluir o pedido:");
+                                        inputUsuario = scanner.nextLine().trim();
+                                    }
+
+                                    if (inputUsuario.equals("2")){
+                                        pedidoConcluido = true;
+                                    }
+
+                                }
+
+
+
+                            } else {
+                                System.out.println("Produto indisponivel em estoque, deseja tentar outro produto ou voltar ao menu?");
+                                System.out.println("1 - Tentar outro produto");
+                                System.out.println("2 - Voltar ao menu principal");
+
+                                inputUsuario = scanner.nextLine().trim();
+
+                                while (!inputValido(inputUsuario)){
+                                    System.out.println("\nOpção inválida, digite 1 para tentar outro produto ou 2 para voltar ao menu:");
+                                    inputUsuario = scanner.nextLine().trim();
+                                }
+                                if (inputUsuario.equals("2")){
+                                    pedidoConcluido = true;
+                                }
+                            }
+
+
+                        } else {
+                            System.out.println("Produto não encontrado, deseja tentar outro produto ou voltar ao menu? ");
+                            System.out.println("1 - Tentar outro produto");
+                            System.out.println("2 - Voltar ao menu principal");
+
+                            inputUsuario = scanner.nextLine().trim();
+
+                            while (!inputValido(inputUsuario)){
+                                System.out.println("\nOpção inválida, digite 1 para tentar outro produto ou 2 para voltar ao menu:");
+                                inputUsuario = scanner.nextLine().trim();
+                            }
+                            if (inputUsuario.equals("2")){
+                                pedidoConcluido = true;
+                            }
+
+                        }
+
+                    } while (!pedidoConcluido);
+
+                    pedido.imprimePedido();
+
+
                     break;
 
                 case "0":
