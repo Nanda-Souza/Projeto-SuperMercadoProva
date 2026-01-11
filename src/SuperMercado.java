@@ -136,6 +136,8 @@ public class SuperMercado {
                 case "3":
 
                     boolean pedidoConcluido = false;
+                    boolean voltarAoMenu = false;
+
                     do {
 
                         System.out.println("Digite o nome do produto: ");
@@ -210,7 +212,8 @@ public class SuperMercado {
                                     inputUsuario = scanner.nextLine().trim();
                                 }
                                 if (inputUsuario.equals("2")){
-                                    pedidoConcluido = true;
+                                    pedido.limparCarrinho();
+                                    voltarAoMenu = true;
                                 }
                             }
 
@@ -227,14 +230,17 @@ public class SuperMercado {
                                 inputUsuario = scanner.nextLine().trim();
                             }
                             if (inputUsuario.equals("2")){
-                                pedidoConcluido = true;
+                                pedido.limparCarrinho();
+                                voltarAoMenu = true;
                             }
 
                         }
 
-                    } while (!pedidoConcluido);
+                    } while (!pedidoConcluido && !voltarAoMenu);
 
                     pedido.imprimePedido();
+                    System.out.println(pedido.getValorTotalDoPedido());
+                    pedido.limparCarrinho();
 
 
                     break;
